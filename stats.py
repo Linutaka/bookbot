@@ -1,6 +1,6 @@
 def get_book_text(file_path):
     with open(file_path) as file:
-        file_contents = file.read()
+        file_contents = file.read() # read contents of a file and convert it to a string
     return file_contents
 
 def get_num_words(words):
@@ -20,13 +20,12 @@ def get_counting_characters(words):
             character_dict[character] = 1       # falls character nicht im Dictionary -> fuege es als 'Key' hinzu und setze 'Value' auf 1
     return character_dict
 
-def sort_on(item):
+def sort_on(item):                  # Hilfsfunktion, die den Parameter "num" uebergibt
     return item["num"]     
    
 def chars_sort(count_dict):
     char_list = []
-    for i, u in count_dict.items():
-        #entry = {"char": i, "num": u}
-        char_list.append({"char": i, "num": u})
-    char_list.sort(reverse=True, key =sort_on)
+    for i, u in count_dict.items():                 # starte schleife mit 2 variablen um durch Dict zu itterieren
+        char_list.append({"char": i, "num": u})     # packt pro Zeichen ein neues Dictionary in die char_liste
+    char_list.sort(reverse=True, key =sort_on)      # sortiert die Liste nach "num" dank der Hilfsfunktion
     return char_list
